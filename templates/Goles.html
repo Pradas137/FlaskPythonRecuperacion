@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Simple interface to make some music using a raspberry pi">
+    <meta name="author" content="Robert Filter">
+    <link rel="icon" href="">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      h1 {text-align: center}
+      .img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
+    </style>
+  </head>
+    <body>
+        <header>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">{{ title }}</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1>Liga de Futbol</h1>
+            <div class="btn-group btn-group-justified">
+                    <a class="btn btn-lg btn-warning" href="/">Principal</a>
+                    <a class="btn btn-lg btn-danger" href="/Ligas">Ligas</a>
+                    <a class="btn btn-lg btn-danger" href="/Equipos">Equipos</a>
+                    <a class="btn btn-lg btn-danger" href="/ranking">Ranking</a>
+                </div>
+            </div>
+        </header>
+<div class="container-fluid">
+    <h1 class="mt-4 mb-4">Goles</h1>
+    <form method="POST">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="localTeamSelector">Local</label>
+                    <select class="form-control" name="localTeam" id="localTeamSelector">
+                        {% for equip in Equipos %}
+                        <option value="{{equip}}">{{equip}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="localTeamScoreInput"> Goles</label>
+                    <input type="number" class="form-control" name="localTeamScore" id="localTeamScoreInput" aria-describedby="helpId" required placeholder="0"/>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="visitantTeamSelector">Visitante</label>
+                    <select class="form-control" name="visitantTeam" id="visitantTeamSelector">
+                        {% for equip in Equipos %}
+                        <option value="{{equip}}">{{equip}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="visitantTeamScoreInput">Goles</label>
+                    <input type="number" class="form-control" name="visitantTeamScore" id="visitantTeamScoreInput" aria-describedby="helpId" required placeholder="0"/>
+                </div>
+            </div>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Añadir</button>
+    </form>
+</div>
+
+</body>
+</html>>

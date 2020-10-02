@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Simple interface to make some music using a raspberry pi">
+    <meta name="author" content="Robert Filter">
+    <link rel="icon" href="">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      h1 {text-align: center}
+      .img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
+    </style>
+  </head>
+    <body>
+        <header>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">{{ title }}</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1>Liga de Futbol</h1>
+            <div class="btn-group btn-group-justified">
+                    <a class="btn btn-lg btn-warning" href="/">Principal</a>
+                    <a class="btn btn-lg btn-danger" href="/Ligas">Ligas</a>
+                    <a class="btn btn-lg btn-danger" href="/Equipos">Equipos</a>
+                    <a class="btn btn-lg btn-danger" href="/Goles">Goles</a>
+                </div>
+            </div>
+        </header>
+
+<div class="container-fluid">
+    <h1 class="mt-4 mb-4">Ranking</h1>
+    <div class="table-responsive">
+        <table class="table table-striped table-borderless">
+            <tbody>
+                {% for equip in ranking %}
+                <tr>
+                    <th scope="row">{{equip[0]}}</th>
+                    <th scope="row">{{equip[1]}}</th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
