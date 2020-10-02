@@ -49,16 +49,16 @@
         <div class="card">
             <div class="card-body">
                 <div class="form-group">
-                    <label for="localTeamSelector">Local</label>
-                    <select class="form-control" name="localTeam" id="localTeamSelector">
+                    <label for="localSelector">Local</label>
+                    <select class="form-control" name="Local" id="localTeamSelector">
                         {% for equip in Equipos %}
                         <option value="{{equip}}">{{equip}}</option>
                         {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="localTeamScoreInput"> Goles</label>
-                    <input type="number" class="form-control" name="localTeamScore" id="localTeamScoreInput" aria-describedby="helpId" required placeholder="0"/>
+                    <label for="localInput"> Goles</label>
+                    <input type="number" class="form-control" name="GolesL" id="localInput" aria-describedby="helpId" required placeholder="0"/>
                 </div>
             </div>
         </div>
@@ -66,16 +66,16 @@
         <div class="card">
             <div class="card-body">
                 <div class="form-group">
-                    <label for="visitantTeamSelector">Visitante</label>
-                    <select class="form-control" name="visitantTeam" id="visitantTeamSelector">
+                    <label for="visitantSelector">Visitante</label>
+                    <select class="form-control" name="Visitante" id="visitantTeamSelector">
                         {% for equip in Equipos %}
                         <option value="{{equip}}">{{equip}}</option>
                         {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="visitantTeamScoreInput">Goles</label>
-                    <input type="number" class="form-control" name="visitantTeamScore" id="visitantTeamScoreInput" aria-describedby="helpId" required placeholder="0"/>
+                    <label for="visitanteInput">Goles</label>
+                    <input type="number" class="form-control" name="GolesV" id="visitanteInput" aria-describedby="helpId" required placeholder="0"/>
                 </div>
             </div>
         </div>

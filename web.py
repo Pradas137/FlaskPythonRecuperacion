@@ -63,10 +63,10 @@ def Goles(error=None):
 
 @app.route('/Goles', methods=["POST"])
 def GolesPost():
-    Local = request.form["localTeam"]
-    Visitante = request.form["visitantTeam"]
-    GolesL = request.form["localTeamScore"]
-    GolesV = request.form["visitantTeamScore"]
+    Local = request.form["Local"]
+    Visitante = request.form["Visitante"]
+    GolesL = request.form["GolesL"]
+    GolesV = request.form["GolesV"]
     if Local == Visitante:
         return goals_input("sameTeams")
     else:
