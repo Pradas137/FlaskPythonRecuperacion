@@ -62,7 +62,7 @@ def Goles(error=None):
 
 
 @app.route('/Goles', methods=["POST"])
-def goals_input_post():
+def GolesPost():
     Local = request.form["localTeam"]
     Visitante = request.form["visitantTeam"]
     GolesL = request.form["localTeamScore"]
