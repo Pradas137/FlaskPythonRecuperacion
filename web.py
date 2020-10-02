@@ -34,43 +34,6 @@ def ModificacionLiga(Local, Visitante, GolesL, GolesV):
     liga[Visitante][Local] = GolesV
 
 
-def ModificacionRanking():
-    global ranking
-    ranking = CrearRanking()
-    equipos = []
-    for Local in liga:
-        for Visitante in liga[Local]:
-            if liga[Local][Visitante] != "":
-                if Local and Visitante not in equipos and Local != Visitante:
-                    puntos = check_ranking_points(
-                        liga[Local][Visitante], liga[Visitante][Local])
-                    set_ranking_points(puntos, Local, Visitante)
-        equipos.append(Local)
-
-
-def check_ranking_points(Local, Visitante):
-    if Local != "":
-        if Local > Visitante:
-            return Local
-        elif Local == Visitante:
-            return 1
-        else:
-            return 0
-    else:
-        return 0
-
-
-def set_ranking_points(puntos, Local, Visitante):
-    if puntos == 3:
-        ranking[Local] += puntos
-    elif puntos == 1:
-        ranking[Local] += puntos
-        ranking[Visitante] += puntos
-    else:
-        ranking[Local] += puntos
-        ranking[Visitante] += 3
-
-
 Equipos = file()
 liga = CrearLiga()
 ranking = CrearRanking()
@@ -96,10 +59,6 @@ def Goles(error=None):
     return render_template("Goles.html", Equipos=Equipos, error=error)
 
 
-@app.route('/ranking')
-def Ranking(error=None):
-    ModificacionRanking()
-    return render_template("Ranking.html", ranking=sorted(ranking.items(), key=lambda x: x[1], reverse=True))
 
 
 @app.route('/Goles', methods=["POST"])
