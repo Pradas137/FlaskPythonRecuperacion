@@ -50,25 +50,18 @@ def Ligas():
 
 
 @ app.route('/Equipos')
-def ListaEquipos():
-    return render_template("Equipos.html", Equipos=Equipos)
+def ListaEquipos(error=None):
+    return render_template("Equipos.html", Equipos=Equipos, error=error)
 
 
-@app.route('/Goles')
-def Goles(error=None):
-    return render_template("Goles.html", Equipos=Equipos, error=error)
-
-
-
-
-@app.route('/Goles', methods=["POST"])
+@app.route('/Equipos', methods=["POST"])
 def GolesPost():
     Local = request.form["Local"]
     Visitante = request.form["Visitante"]
     GolesL = request.form["GolesL"]
     GolesV = request.form["GolesV"]
     if Local == Visitante:
-        return goals_input("sameTeams")
+        return GolesPost("sameTeams")
     else:
         ModificacionLiga(Local, Visitante, GolesL, GolesV)
         return redirect(url_for("Ligas"))
