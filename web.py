@@ -28,8 +28,19 @@ def CrearRanking():
         rankingD[Local] = 0
     return rankingD
 
+def rankingGloabal():
+    global Ranking
+    ranking = CrearRanking()
+    ListaEquipos = []
+    for Local in liga:
+        for Visitante in liga[Local]:
+            if liga[Local][Visitante] != "":
+                if Local and Visitante not in ListaEquipos and Local != Visitante:
+                    puntos = PuntosRanking(liga[Local][Visitante], liga[Visitante][Local])
+        ListaEquipos.append(Local)
+
+
 def PuntosRanking(Local, Visitante):
-    """Check how many points did the local team win."""
     if Local != "":
         if Local > Visitante:
             return 3
@@ -66,7 +77,8 @@ def ListaEquipos():
 
 @app.route('/Ranking')
 def TablaRanking():
-    #update_ranking()
+    
+    rankingGloabal()
     return render_template("Ranking.html", Ranking=sorted(Ranking.items(), key=lambda x: x[1], reverse=True))
 
 @app.route('/Equipos', methods=["POST"])
