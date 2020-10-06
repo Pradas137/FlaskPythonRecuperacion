@@ -36,15 +36,26 @@
         <div class="jumbotron">
             <h1>Liga de Futbol</h1>
             <div class="btn-group btn-group-justified">
-                    <a class="btn btn-lg btn-danger" href="/Ligas">Liga</a>
+                    <a class="btn btn-lg btn-warning" href="/">Principal</a>
+                    <a class="btn btn-lg btn-danger" href="/Ligas">Ligas</a>
                     <a class="btn btn-lg btn-danger" href="/Equipos">Equipos</a>
-                    <a class="btn btn-lg btn-danger" href="/Ranking">Ranking</a>
                 </div>
             </div>
         </header>
-	<div class="container-fluid">
-   		<h1 class="mt-4 mb-4">Liga de Futbol</h1>
-    	<img src="http://www.patrickdenis.biz/wp-content/uploads/2020/07/jinja2.png" class="img">
+     <div class="container-fluid">
+    <h1 class="mt-4 mb-4">Ranking de la Liga</h1>
+    <div class="table-responsive">
+        <table class="table table-striped table-borderless">
+            <tbody>
+                {% for equip in Ranking %}
+                <tr>
+                    <th scope="row">{{equip[0]}}</th>
+                    <th scope="row">{{equip[1]}}</th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
-</body>
-</html>
+    </BODY>
+</HTML>

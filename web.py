@@ -16,7 +16,7 @@ def CrearLiga():
         DiccL[Local] = {}
         for Visitante in Equipos:
             if Visitante == Local:
-                DiccL[Local][Visitante] = "X"
+                DiccL[Local][Visitante] = "G"
             else:
                 DiccL[Local][Visitante] = ""
     return DiccL
@@ -28,6 +28,17 @@ def CrearRanking():
         rankingD[Local] = 0
     return rankingD
 
+def PuntosRanking(Local, Visitante):
+    """Check how many points did the local team win."""
+    if Local != "":
+        if Local > Visitante:
+            return 3
+        elif Local == Visitante:
+            return 1
+        else:
+            return 0
+    else:
+        return 0
 
 def ModificacionLiga(Local, Visitante, GolesL, GolesV):
     liga[Local][Visitante] = GolesL
@@ -36,7 +47,7 @@ def ModificacionLiga(Local, Visitante, GolesL, GolesV):
 
 Equipos = file()
 liga = CrearLiga()
-ranking = CrearRanking()
+Ranking = CrearRanking()
 
 
 @app.route('/')
@@ -50,9 +61,13 @@ def Ligas():
 
 
 @ app.route('/Equipos')
-def ListaEquipos(error=None):
-    return render_template("Equipos.html", Equipos=Equipos, error=error)
+def ListaEquipos():
+    return render_template("Equipos.html", Equipos=Equipos)
 
+@app.route('/Ranking')
+def TablaRanking():
+    #update_ranking()
+    return render_template("Ranking.html", Ranking=sorted(Ranking.items(), key=lambda x: x[1], reverse=True))
 
 @app.route('/Equipos', methods=["POST"])
 def GolesPost():

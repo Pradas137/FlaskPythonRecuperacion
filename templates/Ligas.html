@@ -38,8 +38,7 @@
             <div class="btn-group btn-group-justified">
                     <a class="btn btn-lg btn-warning" href="/">Principal</a>
                     <a class="btn btn-lg btn-danger" href="/Equipos">Equipos</a>
-                    <a class="btn btn-lg btn-danger" href="/Goles">Goles</a>
-                    <a class="btn btn-lg btn-danger" href="/ranking">Ranking</a>
+                    <a class="btn btn-lg btn-danger" href="/Ranking">Ranking</a>
                 </div>
             </div>
         </div>
@@ -61,7 +60,7 @@
                 <tr>
                     <th class="bg-dark text-light" scope="row">{{Local}}</th>
                     {% for Visitante in liga[Local] %} 
-                    {% if liga[Local][Visitante] == "X" %}
+                    {% if liga[Local][Visitante] == "G" %}
                     <td class="bg-dark"></td>
                     {% else %}
                     <td class="text-center">{{liga[Local][Visitante]}}</td>
